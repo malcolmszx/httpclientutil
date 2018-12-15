@@ -16,6 +16,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import java.security.cert.*;
 
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
@@ -49,23 +50,19 @@ public class SSLs {
     // 重写X509TrustManager类的三个方法,信任服务器证书
     private static class SSLHandler implements  X509TrustManager, HostnameVerifier{
 		
-		@Override
-		public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-			return new java.security.cert.X509Certificate[]{};
+		public X509Certificate[] getAcceptedIssuers() {
+			return new X509Certificate[]{};
 			//return null;
 		}
 		
-		@Override
-		public void checkServerTrusted(java.security.cert.X509Certificate[] chain,
-				String authType) throws java.security.cert.CertificateException {
+		public void checkServerTrusted(X509Certificate[] chain,
+				String authType) throws CertificateException {
 		}
 		
-		@Override
-		public void checkClientTrusted(java.security.cert.X509Certificate[] chain,
-				String authType) throws java.security.cert.CertificateException {
+		public void checkClientTrusted(X509Certificate[] chain,
+				String authType) throws CertificateException {
 		}
 
-		@Override
 		public boolean verify(String paramString, SSLSession paramSSLSession) {
 			return true;
 		}

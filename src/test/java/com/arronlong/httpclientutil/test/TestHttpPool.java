@@ -23,8 +23,9 @@ import com.arronlong.httpclientutil.exception.HttpProcessException;
  * @author arron
  * @date 2016年11月7日 下午1:08:07 
  * @version 1.0
- */
+ *  */
 public class TestHttpPool {
+
 	
 	// 设置header信息
 	private static final Header[] headers = HttpHeader.custom().userAgent("Mozilla/5.0").from("http://blog.csdn.net/newest.html").build();
@@ -98,7 +99,6 @@ public class TestHttpPool {
 	        	this.url = url;
 	        }
 	        
-	        @Override
 	        public void run() {
 	            try {
 	            	config.out(out);
@@ -167,7 +167,6 @@ public class TestHttpPool {
 		final HttpConfig cfg = HttpConfig.custom().client(client).headers(headers);//为每次请求创建一个实例化对象
 		for (int i = 0; i < 100; i++) {
 			new Thread(new Runnable() {
-				@Override
 				public void run() {
 					try {
 						int idx = ((int) (Math.random() * 10)) % 5;

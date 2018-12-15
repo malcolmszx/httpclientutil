@@ -34,10 +34,10 @@ import com.arronlong.httpclientutil.exception.HttpProcessException;
  * @author arron
  * @version 1.0
  */
-public class  HCB extends HttpClientBuilder{
+public class HCB extends HttpClientBuilder{
 	
-	public boolean isSetPool=false;//记录是否设置了连接池
-	private SSLProtocolVersion sslpv=SSLProtocolVersion.SSLv3;//ssl 协议版本
+	public boolean isSetPool = false;//记录是否设置了连接池
+	private SSLProtocolVersion sslpv = SSLProtocolVersion.SSLv3;//ssl 协议版本
 	
 	//用于配置ssl
 	private SSLs ssls = SSLs.getInstance();

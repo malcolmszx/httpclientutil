@@ -40,7 +40,7 @@ public class HttpClientTest {
 		System.out.println("--------加入header设置--------");
 		url="http://blog.csdn.net/xiaoxian8023";
 		//设置header信息
-		Header[] headers=HttpHeader.custom().userAgent("Mozilla/5.0").build();
+		Header[] headers = HttpHeader.custom().userAgent("Mozilla/5.0").build();
 		//执行请求
 		resp = HttpClientUtil.get(config.headers(headers));
 		System.out.println("请求结果内容长度："+ resp.length());
@@ -163,7 +163,6 @@ public class HttpClientTest {
 	        public GetRunnable(CountDownLatch countDownLatch){
 	            this.countDownLatch = countDownLatch;
 	        }
-	        @Override
 	        public void run() {
 	            try {
 	            	if(config.out()==null){
