@@ -19,7 +19,7 @@ import com.arronlong.httpclientutil.exception.HttpProcessException;
 public class TestVerifyCode {
 	
 	public static void main(String[] args) throws InterruptedException, HttpProcessException {
-		String qq = "123456789";//qq号
+		String qq = "1092777841";//qq号
 		String imgUrl = "http://qqxoo.com/include/vdimgvt.php?t="+Math.random(); //获取验证码图片地址
 		String verifyUrl = "http://qqxoo.com/include/vdcheck.php";
 		String saveCodePath = "C:/1.png";//保存验证码图片路径

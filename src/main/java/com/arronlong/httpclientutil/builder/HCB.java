@@ -37,7 +37,7 @@ import com.arronlong.httpclientutil.exception.HttpProcessException;
 public class HCB extends HttpClientBuilder{
 	
 	public boolean isSetPool = false;//记录是否设置了连接池
-	private SSLProtocolVersion sslpv = SSLProtocolVersion.SSLv3;//ssl 协议版本
+	private SSLProtocolVersion sslpv = SSLProtocolVersion.TLSv1_2;//ssl 协议版本
 	
 	//用于配置ssl
 	private SSLs ssls = SSLs.getInstance();
@@ -82,19 +82,6 @@ public class HCB extends HttpClientBuilder{
 	 * @throws HttpProcessException	http处理异常
 	 */
 	public HCB ssl() throws HttpProcessException {
-//		if(isSetPool){//如果已经设置过线程池，那肯定也就是https链接了
-//			if(isNewSSL){
-//				throw new HttpProcessException("请先设置ssl，后设置pool");
-//			}
-//			return this;
-//		}
-//		Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder
-//				.<ConnectionSocketFactory> create()
-//				.register("http", PlainConnectionSocketFactory.INSTANCE)
-//				.register("https", ssls.getSSLCONNSF()).build();
-//		//设置连接池大小
-//		PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
-//		return (HCB) this.setConnectionManager(connManager);
 		return (HCB) this.setSSLSocketFactory(ssls.getSSLCONNSF(sslpv));
 	}
 	
